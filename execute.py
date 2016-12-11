@@ -125,13 +125,15 @@ def create_model(session, forward_only):
 def train():
     # prepare dataset
     print("Preparing data in %s" % gConfig['working_directory'])
-    enc_train, dec_train, enc_dev, dec_dev, _, _ = data_utils.prepare_custom_data(gConfig['working_directory'],
-                                                                                  gConfig['train_enc'],
-                                                                                  gConfig['train_dec'],
-                                                                                  gConfig['test_enc'],
-                                                                                  gConfig['test_dec'],
-                                                                                  gConfig['enc_vocab_size'],
-                                                                                  gConfig['dec_vocab_size'])
+    enc_train, dec_train, enc_dev, dec_dev, _, _ = data_utils.prepare_custom_data(
+		gConfig['working_directory'],
+		gConfig['train_enc'],
+		gConfig['train_dec'],
+		gConfig['test_enc'],
+		gConfig['test_dec'],
+		gConfig['enc_vocab_size'],
+		gConfig['dec_vocab_size']
+	)
 
     # setup config to use BFC allocator
     config = tf.ConfigProto()
